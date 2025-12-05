@@ -1,6 +1,6 @@
 # 🎓 School Management System
 
-A comprehensive, modern, and feature-rich School Management System built with PHP, designed to streamline educational institution operations and enhance the learning experience for students, teachers, parents, and administrators.
+A comprehensive, modern, and feature-rich School Management System built with PHP, designed to streamline educational institution operations and enhance the learning experience for students and administrators.
 
 ## 📋 Table of Contents
 
@@ -19,10 +19,10 @@ A comprehensive, modern, and feature-rich School Management System built with PH
 
 ## 📖 Overview
 
-The School Management System is a comprehensive web-based application designed to manage all aspects of educational institution operations. It provides role-based access for administrators, teachers, students, and cashiers, with features spanning student management, attendance tracking, examination systems, fee management, and more.
+The School Management System is a comprehensive web-based application designed to manage all aspects of educational institution operations. It provides role-based access for administrators and students, with features spanning student management, attendance tracking, examination systems, fee management, and more.
 
 ### Key Features
-- **Multi-Role Support**: Separate dashboards for Admin, Teacher, Student, and Cashier roles
+- **Multi-Role Support**: Separate dashboards for Admin and Student roles
 - **Complete Academic Management**: Student enrollment, class management, attendance, examinations, and promotion system
 - **Document Generation**: Automated generation of Transfer Certificates, marksheets, and admit cards with integrated print system
 - **Financial Management**: Fee collection, payment tracking, and financial reporting
@@ -43,23 +43,23 @@ The School Management System is a comprehensive web-based application designed t
 Create a dynamic school website homepage with sections like Header, Image Carousel, About, Courses, Events, Achievements, Gallery, Testimonials, CTA, and Footer. All content must be managed through an Admin Panel, with data stored in a MySQL database. The Admin Panel should allow adding, editing, and deleting homepage content such as carousel images, events, courses, gallery photos, and contact info. The homepage should load data dynamically via PHP APIs and AJAX.
 
 #### Login System Requirements
-Create a Login Page for a school management system with fields for Username/Email and Password, including validation, 'Remember Me', and 'Forgot Password' options. Implement role-based redirection so Admin, Teacher, Cashier, Student, and Parent each land on their respective dashboards after login. Use MySQL with PHP for backend authentication, hashed passwords for security, and AJAX with API for smooth login without page reloads. The design should be responsive and styled using Tailwind + Bootstrap, with dynamic error and success messages.
+Create a Login Page for a school management system with fields for Username/Email and Password, including validation, 'Remember Me', and 'Forgot Password' options. Implement role-based redirection so Admin and Student each land on their respective dashboards after login. Use MySQL with PHP for backend authentication, hashed passwords for security, and AJAX with API for smooth login without page reloads. The design should be responsive and styled using Tailwind + Bootstrap, with dynamic error and success messages.
 
 #### Header Navigation Requirements
-Design a modern admin panel header for a school management system. The header must include the school logo, navigation menu for Dashboard, Students, Teachers, Classes, Attendance, Exams, Fees, Events, Gallery, and Settings. On the right side, show an Admin profile dropdown with Profile, Change Password, and Logout options. Each module page should have its own header with the module title, breadcrumb navigation, a search bar, and quick action buttons (like Add, Edit, Export). The design should be responsive, using Tailwind + Bootstrap styles, with dynamic data managed by MySQL and editable from the Admin Panel.
+Design a modern admin panel header for a school management system. The header must include the school logo, navigation menu for Dashboard, Students, Classes, Attendance, Exams, Fees, Events, Gallery, and Settings. On the right side, show an Admin profile dropdown with Profile, Change Password, and Logout options. Each module page should have its own header with the module title, breadcrumb navigation, a search bar, and quick action buttons (like Add, Edit, Export). The design should be responsive, using Tailwind + Bootstrap styles, with dynamic data managed by MySQL and editable from the Admin Panel.
 
 #### Sidebar Menu Requirements
-Create a responsive admin panel menu for a school management system. The menu should be a collapsible sidebar with icons and text. It must include links for Dashboard, Students, Teachers, Classes & Subjects, Attendance, Exams & Results, Fees, Events, Gallery, Reports, and Settings. Each item should have submenus where required. The active page should be highlighted. Menu data (titles, icons, links, visibility) should be stored in a MySQL database and controlled by the Admin Panel with role-based permissions. On mobile view, the menu should collapse into a drawer. At the bottom, include an Admin user profile section with Profile, Change Password, and Logout options.
+Create a responsive admin panel menu for a school management system. The menu should be a collapsible sidebar with icons and text. It must include links for Dashboard, Students, Classes & Subjects, Attendance, Exams & Results, Fees, Events, Gallery, Reports, and Settings. Each item should have submenus where required. The active page should be highlighted. Menu data (titles, icons, links, visibility) should be stored in a MySQL database and controlled by the Admin Panel with role-based permissions. On mobile view, the menu should collapse into a drawer. At the bottom, include an Admin user profile section with Profile, Change Password, and Logout options.
 
 ### 🔐 Security & Authentication
 
 #### Role-Based Permission System
-Create a role-based permission system for a school management system with four roles: Admin, Teacher, Cashier, and Student. Admin has full access to all modules including user management, students, teachers, classes, attendance, exams, fees, events, gallery, reports, and settings. Teachers can manage attendance, marks, and classes only for their assigned subjects. Cashiers can only manage fees, payments, receipts, and financial reports. Students have read-only access to their own attendance, results, fees, profile, and announcements. All permissions must be stored in a MySQL database, with the ability to edit roles and permissions from the Admin Panel.
+Create a role-based permission system for a school management system with two roles: Admin and Student. Admin has full access to all modules including user management, students, classes, attendance, exams, fees, events, gallery, reports, and settings. Students have read-only access to their own attendance, results, fees, profile, and announcements. All permissions must be stored in a MySQL database, with the ability to edit roles and permissions from the Admin Panel.
 
 ### 👤 User Management Modules
 
 #### Admin Panel Requirements
-Create an Admin Panel for a school management system with the following pages: Dashboard, Students, Teachers, Classes & Subjects, Attendance, Exams & Results, Fees, Events & Announcements, Gallery, Reports, and Settings. Each page should support CRUD operations and display data in dynamic tables with filters and search options. The Dashboard must include graphs and quick stats. The Students, Teachers, Classes, Attendance, Exams, and Fees pages must allow full data management with import/export support. The Events, Gallery, and Homepage content must sync with the public website dynamically. The Reports page should allow exporting data to PDF and Excel. The Settings page must provide user management, permissions, school info, homepage customization, and API security options. All data should be stored in MySQL and controlled via Admin Panel.
+Create an Admin Panel for a school management system with the following pages: Dashboard, Students, Classes & Subjects, Attendance, Exams & Results, Fees, Events & Announcements, Gallery, Reports, and Settings. Each page should support CRUD operations and display data in dynamic tables with filters and search options. The Dashboard must include graphs and quick stats. The Students, Classes, Attendance, Exams, and Fees pages must allow full data management with import/export support. The Events, Gallery, and Homepage content must sync with the public website dynamically. The Reports page should allow exporting data to PDF and Excel. The Settings page must provide user management, permissions, school info, homepage customization, and API security options. All data should be stored in MySQL and controlled via Admin Panel.
 
 ### 📊 Detailed Module Specifications
 
@@ -68,9 +68,8 @@ Create an Admin Panel for a school management system with the following pages: D
 
 - **Student Management**: Complete CRUD operations with searchable/filterable table views, individual profile pages, and bulk import/export capabilities including ID card generation.
 
-- **Teacher Management**: Profile management with qualifications, subject assignments, workload distribution, and performance metrics with search/filter functionality.
 
-- **Academic Structure**: Class and section organization, subject assignments, teacher linking, and optional timetable management for structured daily schedules.
+- **Academic Structure**: Class and section organization, subject assignments, and optional timetable management for structured daily schedules.
 
 - **Attendance System**: Daily attendance marking (Present/Absent/Late), bulk CSV/Excel uploads, detailed reporting, and graphical trend analysis.
 
@@ -83,28 +82,6 @@ Create an Admin Panel for a school management system with the following pages: D
 - **Analytics & Reporting**: Comprehensive reports with customizable date ranges, PDF/Excel export, and data analysis for auditing and planning.
 
 - **System Configuration**: School information updates, user account management, permission control, and system settings with backup/restore options.
-
-#### Teacher Portal Features
-- **Personalized Dashboard**: Overview of assigned classes, subjects, lessons, attendance tasks, and exam schedules with class performance statistics.
-
-- **Class Management**: View and manage assigned classes and subjects, access student lists, check timetables, and upload study materials and assignments.
-
-- **Attendance Tracking**: Mark daily attendance for assigned classes with Present/Absent/Late options, correct mistakes, and view summary reports.
-
-- **Academic Management**: Enter exam marks, view student performance records, generate performance summaries, and manage grade calculations.
-
-- **Communication**: View school announcements, receive meeting/training reminders, and request to add academic events with proper permissions.
-
-#### Cashier Portal Features
-- **Financial Dashboard**: Daily activity overview with fee collection summaries, pending dues, alerts for overdue payments, and quick access to payment/receipt operations.
-
-- **Fee Processing**: Core payment recording functionality with detailed transaction management and instant receipt generation for parents.
-
-- **Outstanding Management**: Track and manage pending fees with filtering capabilities, automated reminders, and comprehensive reporting.
-
-- **Financial Reporting**: Generate collection summaries, expense reports, and financial analytics with PDF/Excel export capabilities.
-
-- **Security Controls**: Restricted access to financial data only with enhanced security measures for transaction integrity.
 
 #### Student Portal Features
 - **Academic Dashboard**: Personal academic snapshot showing attendance percentage, exam results, upcoming events, and fee status with relevant notifications.
@@ -131,14 +108,6 @@ Create an Admin Panel for a school management system with the following pages: D
 
 **Features**: Mandatory field validation, MySQL storage, responsive design (Tailwind + Bootstrap), Save/Reset buttons
 
-#### Teacher Registration Form
-**Required Fields:**
-- Employee ID, Full Name (first, middle, last), Date of Birth, Gender, Marital Status, Blood Group
-- Qualification, Specialization/Subjects, Designation/Position, Department, Date of Joining, Experience (years)
-- Permanent Address, Temporary Address, Mobile Number, Email ID, Aadhar Number, PAN Number
-- Samagra ID (optional), Medical Conditions, Classes & Subjects Assigned (dropdown), Teacher Photo Upload
-
-**Features**: Required field validation, MySQL storage, responsive design, Save/Reset buttons
 
 #### Fee Collection Form
 **Features:**
@@ -159,7 +128,7 @@ Create an Admin Panel for a school management system with the following pages: D
 - Summary tables with category totals
 - Print/export options (PDF/Excel)
 - Category-wise spending trend graphs
-- Role-based permissions (Admin/Cashier access only)
+- Role-based permissions (Admin access only)
 
 #### Admit Card Generation System
 **Features:**
@@ -186,7 +155,7 @@ Create an Admin Panel for a school management system with the following pages: D
 1. **Exam Setup Page**: Create/manage examinations with Exam Name, Type, Class/Section, Start/End Date fields
 2. **Subject Schedule Management**: Define exam subjects with dates and timings (Add/Edit/Delete operations)
 3. **Admit Card Generation**: Individual and bulk admit card creation with signature areas and PDF export
-4. **Role-Based Permissions**: Admin full access, Teachers read-only access
+4. **Role-Based Permissions**: Admin full access
 5. **Technology**: Responsive design with Tailwind + Bootstrap, AJAX data fetching
 
 #### Transfer Certificate Generation System
@@ -214,11 +183,7 @@ Create an Admin Panel for a school management system with the following pages: D
 #### Multi-Role Profile Architecture
 **Admin Profiles**: Display name, email, phone, role, photo, login activity, system permissions, and configuration access.
 
-**Teacher Profiles**: Include personal details, assigned classes/subjects, timetable, attendance records, and academic performance metrics.
-
 **Student Profiles**: Comprehensive academic records with scholar number, parents' names, DOB, identification documents (Aadhaar/Samagra/Aapaar/PAN), class/section/roll information, fee status, results, and attendance data.
-
-**Cashier Profiles**: Personal details plus financial summaries including fees collected, expenses recorded, and transaction history.
 
 #### Profile Features
 - Profile picture upload functionality
@@ -260,14 +225,13 @@ The system follows the Model-View-Controller (MVC) pattern for clean separation 
 ## 🔧 Core Modules
 
 ### 👥 User Management System
-- **Multi-Role Support**: Admin, Teacher, Student, Cashier, Parent roles
+- **Multi-Role Support**: Admin and Student roles
 - **Authentication**: Secure login with hashed passwords
 - **Authorization**: Granular permissions per role
 - **Profile Management**: User profile customization and settings
 
 ### 📚 Academic Management
 - **Student Management**: Complete student lifecycle from admission to graduation
-- **Teacher Management**: Staff profiles, subject assignments, and performance tracking
 - **Class Management**: Class and section organization with subject allocation
 - **Subject Management**: Curriculum management and subject scheduling
 - **Student Promotion System**: Automated promotion logic based on academic performance criteria, with visual indicators (yellow highlighting for promoted students in current session display, automatic class advancement for next academic session)
@@ -310,7 +274,6 @@ The system follows the Model-View-Controller (MVC) pattern for clean separation 
 - `users` - User accounts and authentication data
 - `user_roles` - Role definitions and permissions
 - `students` - Student personal and academic information
-- `teachers` - Teacher profiles and assignments
 - `classes` - Class and section definitions
 - `subjects` - Subject catalog and curriculum
 - `class_subjects` - Subject assignments to classes
@@ -447,10 +410,7 @@ After installation, use these credentials to log in:
 | Role | Username | Password | Dashboard |
 |------|----------|----------|-----------|
 | Admin | admin | admin123 | `/admin/dashboard` |
-| Teacher | teacher1 | teacher123 | `/teacher/dashboard` |
 | Student | student1 | student123 | `/student/dashboard` |
-| Parent | parent1 | parent123 | `/parent/dashboard` |
-| Cashier | cashier1 | cashier123 | `/cashier/dashboard` |
 
 **⚠️ Important:** Change all default passwords immediately after first login.
 
@@ -468,9 +428,7 @@ school-management/
 ├── 🔧 Application Core (MVC Architecture)
 │   ├── controllers/     # Request handlers
 │   │   ├── AdminController.php
-│   │   ├── TeacherController.php
 │   │   ├── StudentController.php
-│   │   ├── CashierController.php
 │   │   ├── AuthController.php
 │   │   └── ApiController.php
 │   ├── core/           # Framework foundation
@@ -483,7 +441,6 @@ school-management/
 │   ├── models/         # Data layer
 │   │   ├── User.php         # User management
 │   │   ├── Student.php       # Student operations
-│   │   ├── Teacher.php       # Teacher operations
 │   │   ├── Fee.php           # Fee management
 │   │   ├── Exam.php          # Examination system
 │   │   └── Attendance.php    # Attendance tracking
@@ -502,10 +459,7 @@ school-management/
 │
 ├── 🌐 Public Interface
 │   ├── admin/            # Admin interface
-│   ├── teacher/          # Teacher portal
 │   ├── student/          # Student portal
-│   ├── cashier/          # Cashier interface
-│   ├── parent/           # Parent portal
 │   └── public/           # Public website
 │
 ├── 📱 Assets & Resources
@@ -529,7 +483,6 @@ school-management/
 │   │   ├── v1/                 # API version 1
 │   │   │   ├── auth/           # Authentication endpoints
 │   │   │   ├── students/       # Student data API
-│   │   │   ├── teachers/       # Teacher data API
 │   │   │   ├── fees/           # Fee management API
 │   │   │   ├── exams/          # Examination API
 │   │   │   └── reports/        # Reporting API
@@ -567,9 +520,9 @@ school-management/
 #### Application Core Files
 | Component | Primary Files | Responsibility |
 |-----------|---------------|----------------|
-| **Controllers** | [`AdminController.php`](controllers/AdminController.php), [`TeacherController.php`](controllers/TeacherController.php), [`StudentController.php`](controllers/StudentController.php), [`CashierController.php`](controllers/CashierController.php), [`AuthController.php`](controllers/AuthController.php), [`ApiController.php`](controllers/ApiController.php) | Request handling and business logic |
-| **Models** | [`User.php`](models/User.php), [`Student.php`](models/Student.php), [`Teacher.php`](models/Teacher.php), [`Fee.php`](models/Fee.php), [`Exam.php`](models/Exam.php), [`Attendance.php`](models/Attendance.php) | Data operations and database interaction |
-| **Views** | [`admin/dashboard`](admin/dashboard/), [`admin/students`](admin/students/), [`admin/teachers`](admin/teachers/), [`admin/classes`](admin/classes/), [`admin/attendance`](admin/attendance/), [`admin/exams`](admin/exams/), [`admin/fees`](admin/fees/), [`admin/events`](admin/events/), [`admin/gallery`](admin/gallery/), [`admin/reports`](admin/reports/), [`admin/settings`](admin/settings/), [`teacher/dashboard`](teacher/dashboard/), [`teacher/attendance`](teacher/attendance/), [`teacher/classes`](teacher/classes/), [`teacher/exams`](teacher/exams/), [`teacher/profile`](teacher/profile/), [`student/dashboard`](student/dashboard/), [`student/attendance`](student/attendance/), [`student/results`](student/results/), [`student/fees`](student/fees/), [`student/profile`](student/profile/), [`cashier/dashboard`](cashier/dashboard/), [`cashier/fees`](cashier/fees/), [`cashier/outstanding`](cashier/outstanding/), [`cashier/reports`](cashier/reports/), [`cashier/expenses`](cashier/expenses/), [`parent/dashboard`](parent/dashboard/), [`parent/children`](parent/children/), [`parent/attendance`](parent/attendance/), [`parent/results`](parent/results/), [`parent/fees`](parent/fees/), [`parent/events`](parent/events/), [`parent/profile`](parent/profile/), [`public/homepage`](public/homepage/) | Presentation and user interface |
+| **Controllers** | [`AdminController.php`](controllers/AdminController.php), [`StudentController.php`](controllers/StudentController.php), [`AuthController.php`](controllers/AuthController.php), [`ApiController.php`](controllers/ApiController.php) | Request handling and business logic |
+| **Models** | [`User.php`](models/User.php), [`Student.php`](models/Student.php), [`Fee.php`](models/Fee.php), [`Exam.php`](models/Exam.php), [`Attendance.php`](models/Attendance.php) | Data operations and database interaction |
+| **Views** | [`admin/dashboard`](admin/dashboard/), [`admin/students`](admin/students/), [`admin/classes`](admin/classes/), [`admin/attendance`](admin/attendance/), [`admin/exams`](admin/exams/), [`admin/fees`](admin/fees/), [`admin/events`](admin/events/), [`admin/gallery`](admin/gallery/), [`admin/reports`](admin/reports/), [`admin/settings`](admin/settings/), [`student/dashboard`](student/dashboard/), [`student/attendance`](student/attendance/), [`student/results`](student/results/), [`student/fees`](student/fees/), [`student/profile`](student/profile/), [`public/homepage`](public/homepage/) | Presentation and user interface |
 | **Core** | [`Database.php`](core/Database.php), [`Router.php`](core/Router.php), [`Security.php`](core/Security.php), [`Session.php`](core/Session.php), [`Validator.php`](core/Validator.php) | Framework foundation |
 | **Config** | [`database.php`](config/database.php), [`app.php`](config/app.php), [`security.php`](config/security.php), [`email.php`](config/email.php), [`upload.php`](config/upload.php) | System configuration |
 | **Middleware** | [`Auth.php`](middleware/Auth.php), [`Security.php`](middleware/Security.php), [`RoleCheck.php`](middleware/RoleCheck.php) | Request processing and security |
@@ -591,7 +544,6 @@ school-management/
 |-----------|---------|-----------|
 | [`api/v1/auth/`](api/v1/auth/) | Authentication API | Login, logout, tokens |
 | [`api/v1/students/`](api/v1/students/) | Student data API | CRUD operations |
-| [`api/v1/teachers/`](api/v1/teachers/) | Teacher API | Profile, assignments |
 | [`api/v1/fees/`](api/v1/fees/) | Financial API | Payments, reports |
 | [`api/v1/exams/`](api/v1/exams/) | Examination API | Results, schedules |
 | [`api/v1/reports/`](api/v1/reports/) | Reporting API | Analytics, exports |
@@ -635,14 +587,10 @@ school-management/
 
 #### Dashboard Functions
 - **Admin Dashboard**: Real-time statistics, user activity charts, system health monitoring
-- **Teacher Dashboard**: Class overview, attendance summaries, upcoming exams, student performance metrics
 - **Student Dashboard**: Personal attendance, recent grades, fee status, announcements
-- **Cashier Dashboard**: Fee collection summaries, outstanding payments, financial reports
-- **Parent Dashboard**: Children's progress overview, attendance tracking, fee payments
 
 #### Form Handling Functions
 - **Student Registration**: Dynamic field population, photo upload, validation with real-time feedback
-- **Fee Collection**: Class-based filtering, payment mode selection, receipt generation
 - **Exam Management**: Subject scheduling, date/time validation, bulk operations
 - **Attendance Marking**: Bulk selection, status updates, automatic calculations
 
@@ -666,7 +614,6 @@ school-management/
 #### Admin Panel Pages
 - **Dashboard**: System overview, statistics, quick actions, notifications
 - **Students Management**: Student list, profiles, registration, bulk operations
-- **Teachers Management**: Staff profiles, assignments, performance tracking
 - **Classes & Subjects**: Academic structure, subject allocation, timetable
 - **Attendance Management**: Daily marking, reports, analytics
 - **Exams & Results**: Exam setup, result entry, report generation
@@ -703,14 +650,6 @@ school-management/
 - **System Settings** - Configure school information and preferences
 - **Reports** - Generate comprehensive reports and analytics
 - **Student Management** - Oversee all student records and activities
-- **Teacher Management** - Manage teaching staff and assignments
-
-### Teacher Features
-- **Class Management** - Create and manage classes and sections
-- **Attendance** - Mark and track student attendance
-- **Assignments** - Create and grade assignments
-- **Exams** - Schedule and manage examinations
-- **Grade Book** - Maintain student grades and performance
 
 ### Student Features
 - **Dashboard** - Personal academic dashboard
@@ -719,19 +658,6 @@ school-management/
 - **Attendance** - View attendance records
 - **Library** - Access library resources
 
-### Parent Features
-- **Children Overview** - Monitor children's academic progress
-- **Attendance Reports** - Track children's attendance
-- **Grade Reports** - View children's academic performance
-- **Fee Status** - Check fee payments and outstanding amounts
-- **Notifications** - Receive important school updates
-
-### Cashier Features
-- **Fee Collection** - Process fee payments
-- **Payment Reports** - Generate payment summaries
-- **Outstanding Fees** - Track unpaid fees
-- **Receipt Generation** - Create payment receipts
-- **Financial Reports** - Generate financial summaries
 
 ## 🔒 Security Features
 
@@ -880,7 +806,7 @@ We welcome contributions from the community! Please follow these guidelines:
 
 ### Version 1.0.0 (Current Release)
 - **Initial Release**: Complete school management system
-- **Multi-Role Support**: Admin, Teacher, Student, Cashier, Parent portals
+- **Multi-Role Support**: Admin and Student portals
 - **Modern UI**: Responsive Bootstrap 5 interface
 - **RESTful API**: Complete API for mobile and external integrations
 - **Security Features**: Comprehensive security implementation
@@ -947,10 +873,7 @@ We welcome contributions from the community! Please follow these guidelines:
 
 #### User Dashboards
 - **Admin Portal**: `/admin/`
-- **Teacher Portal**: `/teacher/`
 - **Student Portal**: `/student/`
-- **Cashier Portal**: `/cashier/`
-- **Parent Portal**: `/parent/`
 
 #### API Endpoints
 - **Authentication**: `/api/v1/auth/login`
