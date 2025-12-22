@@ -84,6 +84,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/admin/homepage">
+                            <i class="fas fa-home"></i> Homepage
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/admin/reports">
                             <i class="fas fa-chart-bar"></i> Reports
                         </a>

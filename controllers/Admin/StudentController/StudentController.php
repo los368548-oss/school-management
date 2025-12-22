@@ -14,7 +14,7 @@ class StudentController extends BaseController {
     }
 
     public function students() {
-        $studentModel = new Student();
+        $studentModel = $this->loadModel('Student/Student/Student');
 
         // Get students for current academic year
         $students = $studentModel->getForCurrentYear();
@@ -48,7 +48,7 @@ class StudentController extends BaseController {
             $errors = Validator::validateData($postData, $validationRules);
 
             if (empty($errors)) {
-                $studentModel = new Student();
+                $studentModel = $this->loadModel('Student/Student/Student');
 
                 // Handle file upload
                 $photoPath = null;
@@ -102,7 +102,7 @@ class StudentController extends BaseController {
     }
 
     public function edit($studentId) {
-        $studentModel = new Student();
+        $studentModel = $this->loadModel('Student/Student/Student');
         $student = $studentModel->find($studentId);
 
         if (!$student) {
@@ -187,7 +187,7 @@ class StudentController extends BaseController {
     }
 
     public function view($studentId) {
-        $studentModel = new Student();
+        $studentModel = $this->loadModel('Student/Student/Student');
         $student = $studentModel->find($studentId);
 
         if (!$student) {
@@ -228,7 +228,7 @@ class StudentController extends BaseController {
             $this->json(['error' => 'Invalid request method'], 400);
         }
 
-        $studentModel = new Student();
+        $studentModel = $this->loadModel('Student/Student/Student');
         $student = $studentModel->find($studentId);
 
         if (!$student) {
@@ -249,7 +249,7 @@ class StudentController extends BaseController {
     }
 
     public function export() {
-        $studentModel = new Student();
+        $studentModel = $this->loadModel('Student/Student/Student');
         $students = $studentModel->getForCurrentYear();
 
         // Generate CSV
@@ -290,8 +290,5 @@ class StudentController extends BaseController {
         exit;
     }
 
-    private function getAcademicYearInfo($academicYearId) {
-        return $this->db->selectOne("SELECT * FROM academic_years WHERE id = ?", [$academicYearId]);
-    }
 }
 ?>

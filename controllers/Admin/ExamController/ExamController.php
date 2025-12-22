@@ -14,7 +14,7 @@ class ExamController extends BaseController {
     }
 
     public function exams() {
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
 
         $exams = $examModel->getForCurrentYear();
         $upcomingExams = $examModel->getUpcomingExams();
@@ -49,7 +49,7 @@ class ExamController extends BaseController {
         $errors = Validator::validateData($postData, $validationRules);
 
         if (empty($errors)) {
-            $examModel = new Exam();
+            $examModel = $this->loadModel('Admin/Exam/Exam');
 
             $examData = [
                 'exam_name' => $postData['exam_name'],
@@ -89,7 +89,7 @@ class ExamController extends BaseController {
     }
 
     public function edit($examId) {
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
         $exam = $examModel->getWithSubjects($examId);
 
         if (!$exam) {
@@ -152,7 +152,7 @@ class ExamController extends BaseController {
             $this->json(['error' => 'Invalid request method'], 400);
         }
 
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
         $exam = $examModel->find($examId);
 
         if (!$exam) {
@@ -168,7 +168,7 @@ class ExamController extends BaseController {
     }
 
     public function enterResults($examId) {
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
         $exam = $examModel->getWithSubjects($examId);
 
         if (!$exam) {
@@ -211,7 +211,7 @@ class ExamController extends BaseController {
             $this->json(['error' => 'Exam ID is required'], 400);
         }
 
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
 
         if ($examModel->saveResults($examId, $postData['results'] ?? [])) {
             $this->json(['success' => true, 'message' => 'Results saved successfully']);
@@ -221,7 +221,7 @@ class ExamController extends BaseController {
     }
 
     public function generateAdmitCard($examId) {
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
         $exam = $examModel->find($examId);
 
         if (!$exam) {
@@ -246,7 +246,7 @@ class ExamController extends BaseController {
     }
 
     public function generateMarksheet($examId) {
-        $examModel = new Exam();
+        $examModel = $this->loadModel('Admin/Exam/Exam');
         $exam = $examModel->find($examId);
 
         if (!$exam) {
@@ -270,8 +270,5 @@ class ExamController extends BaseController {
         $this->view('admin/marksheet', $data);
     }
 
-    private function getAcademicYearInfo($academicYearId) {
-        return $this->db->selectOne("SELECT * FROM academic_years WHERE id = ?", [$academicYearId]);
-    }
 }
 ?>

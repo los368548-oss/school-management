@@ -78,6 +78,13 @@ class BaseController {
     }
 
     /**
+     * Get academic year info
+     */
+    protected function getAcademicYearInfo($academicYearId) {
+        return $this->db->selectOne("SELECT * FROM academic_years WHERE id = ?", [$academicYearId]);
+    }
+
+    /**
      * Set JSON response
      */
     protected function json($data, $statusCode = 200) {
@@ -121,6 +128,20 @@ class BaseController {
      */
     protected function getFlash($type = null) {
         return Session::getFlash($type);
+    }
+
+    /**
+     * Load a model
+     */
+    protected function loadModel($modelPath) {
+        $modelFile = BASE_PATH . 'models/' . $modelPath . '.php';
+        if (file_exists($modelFile)) {
+            require_once $modelFile;
+            $modelClass = basename($modelPath);
+            return new $modelClass();
+        } else {
+            throw new Exception("Model file not found: {$modelFile}");
+        }
     }
 
     /**

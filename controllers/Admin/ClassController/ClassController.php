@@ -14,8 +14,8 @@ class ClassController extends BaseController {
     }
 
     public function classes() {
-        $classModel = new ClassModel();
-        $subjectModel = new Subject();
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
+        $subjectModel = $this->loadModel('Admin/Subject/Subject');
 
         $classes = $classModel->getForCurrentYear();
         $subjects = $subjectModel->getActive();
@@ -49,7 +49,7 @@ class ClassController extends BaseController {
         $errors = Validator::validateData($postData, $validationRules);
 
         if (empty($errors)) {
-            $classModel = new ClassModel();
+            $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
 
             // Check if class already exists
             if ($classModel->isClassExists($postData['class_name'], $postData['section'])) {
@@ -81,7 +81,7 @@ class ClassController extends BaseController {
     }
 
     public function edit($classId) {
-        $classModel = new ClassModel();
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
         $class = $classModel->find($classId);
 
         if (!$class) {
@@ -144,7 +144,7 @@ class ClassController extends BaseController {
             $this->json(['error' => 'Invalid request method'], 400);
         }
 
-        $classModel = new ClassModel();
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
         $class = $classModel->find($classId);
 
         if (!$class) {
@@ -169,8 +169,5 @@ class ClassController extends BaseController {
         }
     }
 
-    private function getAcademicYearInfo($academicYearId) {
-        return $this->db->selectOne("SELECT * FROM academic_years WHERE id = ?", [$academicYearId]);
-    }
 }
 ?>

@@ -72,7 +72,15 @@ class Router {
              'admin/gallery/add' => ['controller' => 'GalleryController', 'action' => 'add', 'middleware' => 'Auth'],
              'admin/gallery/edit/{id}' => ['controller' => 'GalleryController', 'action' => 'edit', 'middleware' => 'Auth'],
              'admin/gallery/delete/{id}' => ['controller' => 'GalleryController', 'action' => 'delete', 'middleware' => 'Auth'],
+             'admin/homepage' => ['controller' => 'HomepageController', 'action' => 'homepage', 'middleware' => 'Auth'],
+             'admin/homepage/add' => ['controller' => 'HomepageController', 'action' => 'add', 'middleware' => 'Auth'],
+             'admin/homepage/edit/{id}' => ['controller' => 'HomepageController', 'action' => 'edit', 'middleware' => 'Auth'],
+             'admin/homepage/delete/{id}' => ['controller' => 'HomepageController', 'action' => 'delete', 'middleware' => 'Auth'],
+             'admin/homepage/reorder' => ['controller' => 'HomepageController', 'action' => 'reorder', 'middleware' => 'Auth'],
              'admin/reports' => ['controller' => 'ReportController', 'action' => 'reports', 'middleware' => 'Auth'],
+             'admin/reports/students' => ['controller' => 'ReportController', 'action' => 'generateStudentReport', 'middleware' => 'Auth'],
+             'admin/reports/attendance' => ['controller' => 'ReportController', 'action' => 'generateAttendanceReport', 'middleware' => 'Auth'],
+             'admin/reports/fees' => ['controller' => 'ReportController', 'action' => 'generateFeeReport', 'middleware' => 'Auth'],
              'admin/settings' => ['controller' => 'SettingController', 'action' => 'settings', 'middleware' => 'Auth'],
 
             // Student routes

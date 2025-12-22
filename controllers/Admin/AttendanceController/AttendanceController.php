@@ -14,8 +14,8 @@ class AttendanceController extends BaseController {
     }
 
     public function attendance() {
-        $attendanceModel = new Attendance();
-        $classModel = new ClassModel();
+        $attendanceModel = $this->loadModel('Admin/Attendance/Attendance');
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
 
         // Get attendance summary for today
         $attendanceStats = $attendanceModel->getDashboardStats();
@@ -53,11 +53,11 @@ class AttendanceController extends BaseController {
             $this->redirect('/admin/attendance');
         }
 
-        $attendanceModel = new Attendance();
-        $studentModel = new Student();
+        $attendanceModel = $this->loadModel('Admin/Attendance/Attendance');
+        $studentModel = $this->loadModel('Student/Student/Student');
 
         // Get class info
-        $classModel = new ClassModel();
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
         $class = $classModel->getWithStudentCount($classId);
 
         if (!$class) {
@@ -105,7 +105,7 @@ class AttendanceController extends BaseController {
             $this->redirect('/admin/attendance');
         }
 
-        $attendanceModel = new Attendance();
+        $attendanceModel = $this->loadModel('Admin/Attendance/Attendance');
         $result = $attendanceModel->markClassAttendance($classId, $attendanceDate, $attendanceData, Session::get('user_id'));
 
         if ($result) {
@@ -127,8 +127,8 @@ class AttendanceController extends BaseController {
             $this->redirect('/admin/attendance');
         }
 
-        $attendanceModel = new Attendance();
-        $classModel = new ClassModel();
+        $attendanceModel = $this->loadModel('Admin/Attendance/Attendance');
+        $classModel = $this->loadModel('Admin/ClassModel/ClassModel');
 
         $class = $classModel->find($classId);
         $report = $attendanceModel->getClassReport($classId, $startDate, $endDate);
@@ -144,8 +144,5 @@ class AttendanceController extends BaseController {
         $this->view('admin/attendance_report', $data);
     }
 
-    private function getAcademicYearInfo($academicYearId) {
-        return $this->db->selectOne("SELECT * FROM academic_years WHERE id = ?", [$academicYearId]);
-    }
 }
 ?>

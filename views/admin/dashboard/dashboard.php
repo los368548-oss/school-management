@@ -52,6 +52,9 @@
                         <a class="nav-link" href="/admin/gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/admin/homepage">Homepage</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/admin/reports">Reports</a>
                     </li>
                     <li class="nav-item">

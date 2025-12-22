@@ -129,25 +129,63 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 hero-content">
-                    <h1 class="display-4 fw-bold mb-4">
-                        Excellence in <span class="text-warning">Education</span>
-                    </h1>
-                    <p class="lead mb-4">
-                        Empowering students with modern education, innovative teaching methods,
-                        and comprehensive academic management for a brighter future.
-                    </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="/admission" class="btn btn-light btn-custom btn-lg">
-                            <i class="fas fa-graduation-cap me-2"></i>Apply Now
-                        </a>
-                        <a href="#about" class="btn btn-outline-light btn-custom btn-lg">
-                            <i class="fas fa-info-circle me-2"></i>Learn More
-                        </a>
-                    </div>
+                    <?php if (!empty($hero_content)): ?>
+                        <?php foreach ($hero_content as $content): ?>
+                            <h1 class="display-4 fw-bold mb-4">
+                                <?php echo htmlspecialchars($content['title']); ?>
+                            </h1>
+                            <?php if ($content['content']): ?>
+                                <p class="lead mb-4">
+                                    <?php echo nl2br(htmlspecialchars($content['content'])); ?>
+                                </p>
+                            <?php endif; ?>
+                            <div class="d-flex flex-wrap gap-3">
+                                <?php if ($content['link_url'] && $content['link_text']): ?>
+                                    <a href="<?php echo htmlspecialchars($content['link_url']); ?>" class="btn btn-light btn-custom btn-lg">
+                                        <i class="fas fa-graduation-cap me-2"></i><?php echo htmlspecialchars($content['link_text']); ?>
+                                    </a>
+                                <?php else: ?>
+                                    <a href="/admission" class="btn btn-light btn-custom btn-lg">
+                                        <i class="fas fa-graduation-cap me-2"></i>Apply Now
+                                    </a>
+                                <?php endif; ?>
+                                <a href="#about" class="btn btn-outline-light btn-custom btn-lg">
+                                    <i class="fas fa-info-circle me-2"></i>Learn More
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <h1 class="display-4 fw-bold mb-4">
+                            Excellence in <span class="text-warning">Education</span>
+                        </h1>
+                        <p class="lead mb-4">
+                            Empowering students with modern education, innovative teaching methods,
+                            and comprehensive academic management for a brighter future.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="/admission" class="btn btn-light btn-custom btn-lg">
+                                <i class="fas fa-graduation-cap me-2"></i>Apply Now
+                            </a>
+                            <a href="#about" class="btn btn-outline-light btn-custom btn-lg">
+                                <i class="fas fa-info-circle me-2"></i>Learn More
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-6 text-center">
                     <div class="position-relative">
-                        <img src="https://via.placeholder.com/500x400/667eea/ffffff?text=School+Building"
+                        <?php
+                        $heroImage = '';
+                        if (!empty($hero_content)) {
+                            foreach ($hero_content as $content) {
+                                if ($content['image_path']) {
+                                    $heroImage = $content['image_path'];
+                                    break;
+                                }
+                            }
+                        }
+                        ?>
+                        <img src="<?php echo $heroImage ?: 'https://via.placeholder.com/500x400/667eea/ffffff?text=School+Building'; ?>"
                              class="img-fluid rounded shadow-lg" alt="School Building">
                         <div class="position-absolute top-0 end-0 bg-white rounded-circle p-3 shadow">
                             <i class="fas fa-award text-warning fa-2x"></i>
@@ -235,11 +273,22 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h2 class="section-title text-start">About Our School</h2>
-                    <p class="lead text-muted mb-4">
-                        Founded with a vision to provide quality education that nurtures young minds
-                        and prepares them for the challenges of tomorrow.
-                    </p>
+                    <?php if (!empty($about_content)): ?>
+                        <?php foreach ($about_content as $content): ?>
+                            <h2 class="section-title text-start"><?php echo htmlspecialchars($content['title']); ?></h2>
+                            <?php if ($content['content']): ?>
+                                <p class="lead text-muted mb-4">
+                                    <?php echo nl2br(htmlspecialchars($content['content'])); ?>
+                                </p>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <h2 class="section-title text-start">About Our School</h2>
+                        <p class="lead text-muted mb-4">
+                            Founded with a vision to provide quality education that nurtures young minds
+                            and prepares them for the challenges of tomorrow.
+                        </p>
+                    <?php endif; ?>
                     <p class="mb-4">
                         Our school combines traditional values with modern teaching methodologies,
                         creating an environment where students can thrive academically, socially, and personally.
@@ -275,7 +324,18 @@
                     <a href="#contact" class="btn btn-primary btn-custom">Contact Us</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://via.placeholder.com/600x400/764ba2/ffffff?text=School+Campus"
+                    <?php
+                    $aboutImage = '';
+                    if (!empty($about_content)) {
+                        foreach ($about_content as $content) {
+                            if ($content['image_path']) {
+                                $aboutImage = $content['image_path'];
+                                break;
+                            }
+                        }
+                    }
+                    ?>
+                    <img src="<?php echo $aboutImage ?: 'https://via.placeholder.com/600x400/764ba2/ffffff?text=School+Campus'; ?>"
                          class="img-fluid rounded shadow-lg" alt="School Campus">
                 </div>
             </div>
